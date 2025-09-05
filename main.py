@@ -19,8 +19,6 @@ def main(args):
     dev = "cuda"
     save_path = get_save_path(args)
 
-    tokenizer = AutoTokenizer.from_pretrained(args.model_path)
-
     if os.path.exists(save_path):
         print("Quant model already exists.")
         print("Loading exist model from disk...")
@@ -30,6 +28,7 @@ def main(args):
         os.makedirs(save_path, exist_ok=True)
         model = load_pretrained(args, dev)
         qmodel, quantizers = quantize_model(model, args, dev)
+        tokenizer = AutoTokenizer.from_pretrained(save_path)
         save_quant_model(save_path, qmodel, quantizers, tokenizer)
 
 if __name__ == '__main__':
