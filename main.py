@@ -24,7 +24,7 @@ def main(args):
     if os.path.exists(save_path):
         print("Quant model already exists.")
         print("Loading exist model from disk...")
-        qmodel, quantizers = load_quant_model(save_path)
+        qmodel, tokenizer, quantizers = load_quant_model(save_path)
     else:
         print("Quantization required ...")
         os.makedirs(save_path, exist_ok=True)
