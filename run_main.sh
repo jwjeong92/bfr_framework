@@ -1,0 +1,1 @@
+python main.py --quant_method gptq
