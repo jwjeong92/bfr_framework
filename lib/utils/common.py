@@ -32,6 +32,13 @@ def str2intlist(v):
         ret.append(int(vvv))
     return ret
 
+def str2fplist(v):
+    vv = v.split(',')
+    ret = []
+    for vvv in vv:
+        ret.append(float(vvv))
+    return ret
+
 def str2int(v):
     if v.lower() in ('none'):
         return None

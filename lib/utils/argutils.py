@@ -1,10 +1,15 @@
 import argparse
 from lib.utils.common import *
 
+class PseudoArgs():
+    def __init__(self):
+        pass
+
 def parsing_arguments():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--num_gpu', type=int, default=0)
+    parser.add_argument('--force_requant', type=str2bool, default=False)
     
     parser.add_argument('--model_path', type=str, default='/raid/LLM/opt-125m')
     parser.add_argument('--use_cuda_graph', type=str2bool, default=True)
@@ -30,6 +35,7 @@ def parsing_arguments():
     parser.add_argument('--pairing', type=str2bool, default=False)
     
     parser.add_argument('--skip_out_loss', type=str2bool, default=True)
+
     args = parser.parse_args()
 
     return args
